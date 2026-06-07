@@ -15,3 +15,5 @@ command = "mdbook-mermaid"
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
 default-theme = "light"
 preferred-dark-theme = "navy"
+
+[output.pdf]
