@@ -31,6 +31,7 @@
 # 第 5 部分：防火墙技术
 
 - [第 14 章：防火墙基础](chapters/14-firewall-basics.md)
+- [第 15 章：防火墙基础配置](chapters/15-firewall-basic-configuration.md)
 
 # 附录与写作状态
 
