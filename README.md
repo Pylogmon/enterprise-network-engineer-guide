@@ -87,8 +87,8 @@ book/
 该工作流会在推送到 `main` 或 `master` 分支时自动：
 
 1. 安装 mdBook 和 `mdbook-mermaid`。
-2. 运行 `mdbook-mermaid install enterprise-network-engineer-guide`。
-3. 构建 `enterprise-network-engineer-guide/book/`。
+2. 运行 `mdbook-mermaid install .`。
+3. 构建 `./book/`。
 4. 将构建产物发布到 GitHub Pages。
 
 在 GitHub 仓库中需要确认：

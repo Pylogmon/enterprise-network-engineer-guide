@@ -22,6 +22,10 @@
 - [第 9 章：链路聚合](chapters/09-link-aggregation.md)
 - [第 10 章：三层交换](chapters/10-layer3-switching.md)
 
+# 第 4 部分：路由技术
+
+- [第 11 章：路由基础](chapters/11-routing-basics.md)
+
 # 附录与写作状态
 
 - [附录说明](appendices/README.md)

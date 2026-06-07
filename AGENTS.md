@@ -2,14 +2,14 @@
 
 ## Project Structure & Module Organization
 
-This repository contains a Markdown-based enterprise network engineering study guide. The main content lives under `enterprise-network-engineer-guide/`.
+This repository contains a Markdown-based enterprise network engineering study guide. The main content lives under `./`.
 
-- `enterprise-network-engineer-guide/README.md`: entry point and reading guidance.
-- `enterprise-network-engineer-guide/DIRECTORY.md`: standalone table of contents.
-- `enterprise-network-engineer-guide/WRITING_STATUS.md`: writing progress and next planned chapters.
-- `enterprise-network-engineer-guide/chapters/`: numbered chapter files, e.g. `06-switching-basics.md`.
-- `enterprise-network-engineer-guide/appendices/`: appendix materials and quick references.
-- `enterprise-network-engineer-guide/templates/`: reusable writing templates.
+- `./README.md`: entry point and reading guidance.
+- `./DIRECTORY.md`: standalone table of contents.
+- `./WRITING_STATUS.md`: writing progress and next planned chapters.
+- `./chapters/`: numbered chapter files, e.g. `06-switching-basics.md`.
+- `./appendices/`: appendix materials and quick references.
+- `./templates/`: reusable writing templates.
 
 Keep each chapter in its own file. Update `DIRECTORY.md` whenever a new chapter becomes available.
 
@@ -18,9 +18,9 @@ Keep each chapter in its own file. Update `DIRECTORY.md` whenever a new chapter 
 There is no build system or application runtime. Use shell checks for document maintenance:
 
 ```sh
-find enterprise-network-engineer-guide -maxdepth 3 -type f | sort
-wc -l enterprise-network-engineer-guide/chapters/*.md
-rg "TODO|待补充|FIXME" enterprise-network-engineer-guide
+find . -maxdepth 3 -type f | sort
+wc -l ./chapters/*.md
+rg "TODO|待补充|FIXME" .
 ```
 
 Use `find` to verify structure, `wc -l` to estimate chapter size, and `rg` to locate unfinished sections.
