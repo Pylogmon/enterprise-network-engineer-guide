@@ -25,6 +25,7 @@
 # 第 4 部分：路由技术
 
 - [第 11 章：路由基础](chapters/11-routing-basics.md)
+- [第 12 章：动态路由协议](chapters/12-dynamic-routing.md)
 
 # 附录与写作状态
 
