@@ -26,6 +26,7 @@
 
 - [第 11 章：路由基础](chapters/11-routing-basics.md)
 - [第 12 章：动态路由协议](chapters/12-dynamic-routing.md)
+- [第 13 章：企业出口路由设计](chapters/13-enterprise-egress-routing.md)
 
 # 附录与写作状态
 
