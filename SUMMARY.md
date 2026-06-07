@@ -28,6 +28,10 @@
 - [第 12 章：动态路由协议](chapters/12-dynamic-routing.md)
 - [第 13 章：企业出口路由设计](chapters/13-enterprise-egress-routing.md)
 
+# 第 5 部分：防火墙技术
+
+- [第 14 章：防火墙基础](chapters/14-firewall-basics.md)
+
 # 附录与写作状态
 
 - [附录说明](appendices/README.md)
