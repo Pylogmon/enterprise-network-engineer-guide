@@ -1,0 +1,78 @@
+name: Deploy mdBook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build mdBook
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache mdBook tools
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/mdbook
+            ~/.cargo/bin/mdbook-mermaid
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-mdbook-0.5.3-mdbook-mermaid-0.17.0
+
+      - name: Install mdBook
+        run: |
+          if ! command -v mdbook >/dev/null 2>&1; then
+            cargo install --locked mdbook --version 0.5.3
+          fi
+          if ! command -v mdbook-mermaid >/dev/null 2>&1; then
+            cargo install --locked mdbook-mermaid --version 0.17.0
+          fi
+
+      - name: Install Mermaid assets
+        run: mdbook-mermaid install .
+
+      - name: Build book
+        run: mdbook build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: book
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
