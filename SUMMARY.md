@@ -41,6 +41,7 @@
 - [第 19 章：企业网络架构基础](chapters/19-enterprise-network-architecture-basics.md)
 - [第 20 章：中小企业网络设计](chapters/20-sme-network-design.md)
 - [第 21 章：大型企业园区网设计](chapters/21-enterprise-campus-network-design.md)
+- [第 22 章：数据中心网络基础](chapters/22-data-center-network-basics.md)
 
 # 附录与写作状态
 
