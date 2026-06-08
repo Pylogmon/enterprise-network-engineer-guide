@@ -48,6 +48,10 @@
 - [第 23 章：无线网络基础](chapters/23-wireless-network-basics.md)
 - [第 24 章：企业无线设计](chapters/24-enterprise-wireless-design.md)
 
+# 第 8 部分：网络安全与运维
+
+- [第 25 章：网络安全基础](chapters/25-network-security-basics.md)
+
 # 附录与写作状态
 
 - [附录说明](appendices/README.md)
