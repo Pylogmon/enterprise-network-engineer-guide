@@ -43,6 +43,10 @@
 - [第 21 章：大型企业园区网设计](chapters/21-enterprise-campus-network-design.md)
 - [第 22 章：数据中心网络基础](chapters/22-data-center-network-basics.md)
 
+# 第 7 部分：无线网络
+
+- [第 23 章：无线网络基础](chapters/23-wireless-network-basics.md)
+
 # 附录与写作状态
 
 - [附录说明](appendices/README.md)
