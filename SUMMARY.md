@@ -39,6 +39,7 @@
 # 第 6 部分：企业网络架构设计
 
 - [第 19 章：企业网络架构基础](chapters/19-enterprise-network-architecture-basics.md)
+- [第 20 章：中小企业网络设计](chapters/20-sme-network-design.md)
 
 # 附录与写作状态
 
