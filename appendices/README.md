@@ -5,8 +5,8 @@
 - [附录 A：常用端口号表](a-common-ports.md)
 - [附录 B：常用网络命令速查](b-common-network-commands.md)
 - [附录 C：常用交换机命令速查](c-common-switch-commands.md)
-- 附录 D：常用防火墙排错命令
-- 附录 E：企业网络规划模板
-- 附录 F：安全策略表模板
-- 附录 G：割接方案模板
-- 附录 H：网络故障处理记录模板
+- [附录 D：常用防火墙排错命令](d-common-firewall-troubleshooting-commands.md)
+- [附录 E：企业网络规划模板](e-enterprise-network-planning-template.md)
+- [附录 F：安全策略表模板](f-security-policy-table-template.md)
+- [附录 G：割接方案模板](g-cutover-plan-template.md)
+- [附录 H：网络故障处理记录模板](h-network-incident-record-template.md)
