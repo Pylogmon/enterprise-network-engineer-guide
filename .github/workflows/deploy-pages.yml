@@ -40,7 +40,7 @@ jobs:
             ~/.cargo/bin/mdbook-epub
             ~/.cargo/registry
             ~/.cargo/git
-          key: ${{ runner.os }}-mdbook-0.5.3-mdbook-pdf-0.1.13-mdbook-epub-0.4.48
+          key: ${{ runner.os }}-mdbook-0.5.3-mdbook-pdf-0.1.13-mdbook-epub-0.5.2
 
       - name: Install mdBook
         run: |
@@ -51,7 +51,7 @@ jobs:
             cargo install --locked mdbook-pdf --version 0.1.13
           fi
           if ! command -v mdbook-epub >/dev/null 2>&1; then
-            cargo install --locked mdbook-epub --version 0.4.48
+            cargo install --locked mdbook-epub --version 0.5.2
           fi
 
       - name: Setup Chrome
@@ -78,16 +78,16 @@ jobs:
 
       - name: Prepare artifact
         run: |
-          cp book/pdf/output.pdf enterprise-network-engineer-guide.pdf
-          cp book/epub/output.epub enterprise-network-engineer-guide.epub
+          cp book/pdf/output.pdf 企业网络工程师学习手册.pdf
+          cp book/epub/企业网络工程师学习手册.epub 企业网络工程师学习手册.epub
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: enterprise-network-engineer-guide
           path: |
-            enterprise-network-engineer-guide.pdf
-            enterprise-network-engineer-guide.epub
+            企业网络工程师学习手册.pdf
+            企业网络工程师学习手册.epub
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
@@ -114,8 +114,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            enterprise-network-engineer-guide.pdf
-            enterprise-network-engineer-guide.epub
+            企业网络工程师学习手册.pdf
+            企业网络工程师学习手册.epub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
