@@ -17,20 +17,20 @@
 
 ## mdBook 部署
 
-本手册支持使用 mdBook 构建为静态站点，并可同时生成 PDF。章节中使用了 Mermaid 图，因此需要安装 `mdbook-mermaid`；如需生成 PDF，还需要安装 `mdbook-pdf` 和 Chrome/Chromium。
+本手册支持使用 mdBook 构建为静态站点，并可同时生成 PDF。章节中使用了 Mermaid 图，因此需要安装 `mermaid-cli`；如需生成 PDF，还需要安装 `mdbook-pdf` 和 Chrome/Chromium。
 
 ### 安装依赖
 
 ```sh
 mdbook --version
-mdbook-mermaid --version
+mmdc -v
 command -v mdbook-pdf
 ```
 
-如果尚未安装 `mdbook-mermaid`，可参考项目说明安装：
+如果尚未安装 `mermaid-cli`，可参考项目说明安装：
 
 ```sh
-cargo install mdbook-mermaid
+npm install -g @mermaid-js/mermaid-cli
 ```
 
 如果尚未安装 `mdbook-pdf`，可执行：
@@ -41,20 +41,12 @@ cargo install mdbook-pdf
 
 `mdbook-pdf` 通过无头 Chrome/Chromium 渲染 PDF。构建 PDF 前请确认本机已安装 Google Chrome、Chromium 或 Microsoft Edge，并且浏览器可被系统找到。
 
-如果部署环境没有 Cargo，也可以从 `mdbook-mermaid` 的 GitHub Releases 下载对应平台的预编译二进制，并确保 `mdbook-mermaid` 在 `PATH` 中。
-
-`mdbook-mermaid` 项目地址：
-
-```text
-https://github.com/badboy/mdbook-mermaid
-```
-
 ### 初始化 Mermaid 资源
 
-首次使用或升级 `mdbook-mermaid` 后，在本目录执行：
+在本目录执行：
 
 ```sh
-mdbook-mermaid install .
+find ./chapters -type f -name '*.md' | while read -r f; do mmdc -i "$f" -o "$f" -b transparent; done
 ```
 
 该命令会确认 `book.toml` 中的 Mermaid 预处理器配置，并复制 `mermaid.min.js`、`mermaid-init.js` 到当前目录。
@@ -74,6 +66,7 @@ http://localhost:3000
 ### 构建静态站点
 
 ```sh
+find ./chapters -type f -name '*.md' | while read -r f; do mmdc -i "$f" -o "$f" -b transparent; done
 mdbook build
 ```
 
@@ -107,16 +100,17 @@ book/pdf/output.pdf
 
 该工作流会在推送到 `main` 或 `master` 分支时自动：
 
-1. 安装 mdBook 和 `mdbook-mermaid`。
+1. 安装 mdBook 和 `mermaid-cli`。
 2. 安装 `mdbook-pdf` 和 Chrome。
-3. 运行 `mdbook-mermaid install .`。
-4. 构建 `./book/`，同时生成 HTML 和 PDF。
+3. 运行 `find ./chapters -type f -name '*.md' | while read -r f; do mmdc -i "$f" -o "$f" -b transparent; done`。
+4. 构建 `./book/`，同时生成 HTML、 PDF和EPUB。
 5. 将 HTML 构建产物发布到 GitHub Pages。
 
-当工作流由 tag 或 release 触发时，还会将 PDF 作为 Release 附件上传：
+当工作流由 tag 或 release 触发时，还会将 PDF 和 EPUB 作为 Release 附件上传：
 
 ```text
 enterprise-network-engineer-guide.pdf
+enterprise-network-engineer-guide.epub
 ```
 
 在 GitHub 仓库中需要确认：

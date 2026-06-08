@@ -8,12 +8,10 @@ title = "企业网络工程师学习手册"
 build-dir = "book"
 create-missing = false
 
-[preprocessor.mermaid]
-command = "mdbook-mermaid"
-
 [output.html]
-additional-js = ["mermaid.min.js", "mermaid-init.js"]
 default-theme = "light"
 preferred-dark-theme = "navy"
 
 [output.pdf]
+
+[output.epub]

@@ -36,26 +36,32 @@ jobs:
         with:
           path: |
             ~/.cargo/bin/mdbook
-            ~/.cargo/bin/mdbook-mermaid
             ~/.cargo/bin/mdbook-pdf
+            ~/.cargo/bin/mdbook-epub
             ~/.cargo/registry
             ~/.cargo/git
-          key: ${{ runner.os }}-mdbook-0.5.3-mdbook-mermaid-0.17.0-mdbook-pdf-0.1.13
+          key: ${{ runner.os }}-mdbook-0.5.3-mdbook-pdf-0.1.13-mdbook-epub-0.4.48
 
       - name: Install mdBook
         run: |
           if ! command -v mdbook >/dev/null 2>&1; then
             cargo install --locked mdbook --version 0.5.3
           fi
-          if ! command -v mdbook-mermaid >/dev/null 2>&1; then
-            cargo install --locked mdbook-mermaid --version 0.17.0
-          fi
           if ! command -v mdbook-pdf >/dev/null 2>&1; then
             cargo install --locked mdbook-pdf --version 0.1.13
+          fi
+          if ! command -v mdbook-epub >/dev/null 2>&1; then
+            cargo install --locked mdbook-epub --version 0.4.48
           fi
 
       - name: Setup Chrome
         uses: browser-actions/setup-chrome@v1
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
 
       - name: Install Noto CJK fonts
         run: |
@@ -65,20 +71,23 @@ jobs:
           fc-cache -fv
           fc-match "Noto Sans CJK SC"
 
-      - name: Install Mermaid assets
-        run: mdbook-mermaid install .
-
       - name: Build book
-        run: mdbook build
+        run: |
+          find ./chapters -type f -name '*.md' | while read -r f; do mmdc -p .github/puppeteer-config.json -i "$f" -o "$f" -b transparent; done
+          mdbook build
 
-      - name: Prepare PDF artifact
-        run: cp book/pdf/output.pdf enterprise-network-engineer-guide.pdf
+      - name: Prepare artifact
+        run: |
+          cp book/pdf/output.pdf enterprise-network-engineer-guide.pdf
+          cp book/epub/output.epub enterprise-network-engineer-guide.epub
 
-      - name: Upload PDF artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: enterprise-network-engineer-guide
-          path: enterprise-network-engineer-guide.pdf
+          path: |
+            enterprise-network-engineer-guide.pdf
+            enterprise-network-engineer-guide.epub
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
@@ -86,7 +95,7 @@ jobs:
           path: book/html
 
   publish:
-    name: Publish PDF Document
+    name: Publish Document
     needs: build
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
@@ -95,7 +104,7 @@ jobs:
       contents: write
 
     steps:
-      - name: Download PDF artifact
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: enterprise-network-engineer-guide
@@ -104,7 +113,9 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         with:
-          files: enterprise-network-engineer-guide.pdf
+          files: |
+            enterprise-network-engineer-guide.pdf
+            enterprise-network-engineer-guide.epub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
