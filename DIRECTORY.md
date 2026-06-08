@@ -31,7 +31,7 @@
 - [第 15 章：防火墙基础配置](chapters/15-firewall-basic-configuration.md)
 - [第 16 章：NAT 技术](chapters/16-nat.md)
 - [第 17 章：VPN 技术](chapters/17-vpn.md)
-- 第 18 章：防火墙高级功能
+- [第 18 章：防火墙高级功能](chapters/18-firewall-advanced-features.md)
 
 ## 第 6 部分：企业网络架构设计
 
