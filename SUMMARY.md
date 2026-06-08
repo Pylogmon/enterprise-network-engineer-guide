@@ -33,6 +33,7 @@
 - [第 14 章：防火墙基础](chapters/14-firewall-basics.md)
 - [第 15 章：防火墙基础配置](chapters/15-firewall-basic-configuration.md)
 - [第 16 章：NAT 技术](chapters/16-nat.md)
+- [第 17 章：VPN 技术](chapters/17-vpn.md)
 
 # 附录与写作状态
 
