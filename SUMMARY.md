@@ -52,6 +52,7 @@
 
 - [第 25 章：网络安全基础](chapters/25-network-security-basics.md)
 - [第 26 章：网络运维基础](chapters/26-network-operations-basics.md)
+- [第 27 章：常用排错方法](chapters/27-common-troubleshooting-methods.md)
 
 # 附录与写作状态
 
