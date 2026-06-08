@@ -78,16 +78,16 @@ jobs:
 
       - name: Prepare artifact
         run: |
-          cp book/pdf/output.pdf 企业网络工程师学习手册.pdf
-          cp book/epub/企业网络工程师学习手册.epub 企业网络工程师学习手册.epub
+          cp book/pdf/output.pdf enterprise-network-engineer-guide.pdf
+          cp book/epub/企业网络工程师学习手册.epub enterprise-network-engineer-guide.epub
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: enterprise-network-engineer-guide
           path: |
-            企业网络工程师学习手册.pdf
-            企业网络工程师学习手册.epub
+            enterprise-network-engineer-guide.pdf
+            enterprise-network-engineer-guide.epub
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
@@ -114,8 +114,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            企业网络工程师学习手册.pdf
-            企业网络工程师学习手册.epub
+            enterprise-network-engineer-guide.pdf
+            enterprise-network-engineer-guide.epub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
