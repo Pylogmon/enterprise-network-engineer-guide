@@ -62,4 +62,7 @@
 # 附录与写作状态
 
 - [附录说明](appendices/README.md)
+- [附录 A：常用端口号表](appendices/a-common-ports.md)
+- [附录 B：常用网络命令速查](appendices/b-common-network-commands.md)
+- [附录 C：常用交换机命令速查](appendices/c-common-switch-commands.md)
 - [写作进度](WRITING_STATUS.md)
