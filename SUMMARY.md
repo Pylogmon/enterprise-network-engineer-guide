@@ -59,6 +59,7 @@
 - [第 28 章：华为设备配置](chapters/28-huawei-device-configuration.md)
 - [第 29 章：H3C 设备配置](chapters/29-h3c-device-configuration.md)
 - [第 30 章：Cisco 设备配置](chapters/30-cisco-device-configuration.md)
+- [第 31 章：主流防火墙配置思路](chapters/31-mainstream-firewall-configuration.md)
 
 # 附录与写作状态
 
