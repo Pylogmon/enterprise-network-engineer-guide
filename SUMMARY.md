@@ -57,6 +57,7 @@
 # 第 9 部分：厂商设备配置实践
 
 - [第 28 章：华为设备配置](chapters/28-huawei-device-configuration.md)
+- [第 29 章：H3C 设备配置](chapters/29-h3c-device-configuration.md)
 
 # 附录与写作状态
 
