@@ -43,7 +43,7 @@
 ## 第 7 部分：无线网络
 
 - [第 23 章：无线网络基础](chapters/23-wireless-network-basics.md)
-- 第 24 章：企业无线设计
+- [第 24 章：企业无线设计](chapters/24-enterprise-wireless-design.md)
 
 ## 第 8 部分：网络安全与运维
 
